@@ -1,0 +1,143 @@
+;;; -*- coding: utf-8; mode: lisp-data -*-
+(("/home/sayantan/OrgMode/main.org" . 1528)
+ ("/home/sayantan/OrgMode/bikes.org" . 1058)
+ ("/home/sayantan/Sync/graduate-work/Winter2022/RackhamPredoctoralFellowship/personal-statement.tex" . 979)
+ ("/home/sayantan/OrgMode/finance.org" . 660)
+ ("/home/sayantan/OrgMode/main.org_archive" . 120879)
+ ("/home/sayantan/"
+  (dired-filename . "/home/sayantan/.aspell.en.prepl"))
+ ("/home/sayantan/OrgMode/"
+  (dired-filename . "/home/sayantan/OrgMode/main.org"))
+ ("/home/sayantan/Sync/Haskell/org-to-things/"
+  (dired-filename . "/home/sayantan/Sync/Haskell/org-to-things/Refactor-goals.org"))
+ ("/home/sayantan/Sync/Haskell/org-to-things/Refactor-goals.org" . 290)
+ ("/home/sayantan/OrgMode/bikes.org_archive" . 32664)
+ ("/home/sayantan/research-projects/" . 144)
+ ("/home/sayantan/research-projects/lean-out-fn.org" . 581)
+ ("/home/sayantan/Sync/Lean/outer_space/"
+  (dired-filename . "/home/sayantan/Sync/Lean/outer_space/lean-out-fn.org"))
+ ("/home/sayantan/Sync/Lean/outer_space/OuterSpace/"
+  (dired-filename . "/home/sayantan/Sync/Lean/outer_space/OuterSpace/.."))
+ ("/home/sayantan/Sync/Lean/outer_space/lean-out-fn.org" . 836)
+ ("/home/sayantan/Sync/websites/sayantankhan.io/"
+  (dired-filename . "/home/sayantan/Sync/websites/sayantankhan.io/content"))
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/phd-thesis/"
+  (dired-filename . "/home/sayantan/Sync/graduate-work/research-related/papers/phd-thesis/README.md"))
+ ("/home/sayantan/OrgMode/new-server-setup.org" . 3143)
+ ("/home/sayantan/Sync/websites/sayantankhan.io/content/"
+  (dired-filename . "/home/sayantan/Sync/websites/sayantankhan.io/content/articles"))
+ ("/home/sayantan/Sync/websites/sayantankhan.io/content/articles/"
+  (dired-filename . "/home/sayantan/Sync/websites/sayantankhan.io/content/articles/math"))
+ ("/home/sayantan/Sync/websites/sayantankhan.io/content/articles/math/"
+  (dired-filename . "/home/sayantan/Sync/websites/sayantankhan.io/content/articles/math/noll1.md"))
+ ("/home/sayantan/Sync/websites/sayantankhan.io/content/articles/math/noll1.md" . 1305)
+ ("/home/sayantan/Sync/websites/sayantankhan.io/content/pages/Research.md" . 6496)
+ ("/home/sayantan/Sync/websites/sayantankhan.io/content/pages/About.md" . 582)
+ ("/home/sayantan/Sync/teaching/current_semester/116/handouts/13/day13.tex" . 3103)
+ ("/home/sayantan/OrgMode/links.org" . 90)
+ ("/home/sayantan/Sync/configs/t420s-workstation/podman-systemd/podgrab.container" . 251)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/geodesics-in-thin-part/"
+  (dired-filename . "/home/sayantan/Sync/graduate-work/research-related/papers/geodesics-in-thin-part/main.tex"))
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/non-orientable-limit-set-v2/"
+  (dired-filename . "/home/sayantan/Sync/graduate-work/research-related/papers/non-orientable-limit-set-v2/main.tex"))
+ ("/home/sayantan/Sync/websites/sayantankhan.io/content/articles/math/algebraic-cotangent-space.md" . 803)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/phd-thesis/todo.org" . 249)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/non-orientable-limit-set-v2/lower-bound.tex" . 18478)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/non-orientable-limit-set-v2/upper-bound.tex" . 19779)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/non-orientable-limit-set-v2/quasi-convex.tex" . 12118)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/non-orientable-limit-set-v2/introduction.tex" . 10814)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/non-orientable-limit-set-v2/background.tex" . 24844)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/non-orientable-limit-set-v2/main.tex" . 1335)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/geodesics-in-thin-part/main.tex" . 1534)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/geodesics-in-thin-part/introduction.tex" . 899)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/geodesics-in-thin-part/preliminaries.tex" . 18569)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/geodesics-in-thin-part/weak-convex-core.tex" . 17435)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/geodesics-in-thin-part/thin-part.tex" . 32779)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/geodesics-in-thin-part/entropy-equality.tex" . 42286)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/geodesics-in-thin-part/linear-gap.tex" . 49550)
+ ("/home/sayantan/Sync/graduate-work/research-related/papers/geodesics-in-thin-part/appendix.tex" . 31484)
+ ("/home/sayantan/.emacs.d/elisp/auctex-conf.el" . 392)
+ ("/home/sayantan/home-manager-nix/home-xps13.nix" . 4238)
+ ("/home/sayantan/Sync/teaching/current_semester/116/"
+  (dired-filename . "/home/sayantan/Sync/teaching/current_semester/116/class-stuff.org"))
+ ("/home/sayantan/Sync/teaching/current_semester/116/class-stuff.org" . 100)
+ ("/home/sayantan/Sync/teaching/current_semester/116/handouts/"
+  (dired-filename . "/home/sayantan/Sync/teaching/current_semester/116/handouts/02"))
+ ("/home/sayantan/Sync/teaching/current_semester/116/handouts/02/"
+  (dired-filename . "/home/sayantan/Sync/teaching/current_semester/116/handouts/02/day02.tex"))
+ ("/home/sayantan/Sync/teaching/current_semester/116/handouts/02/day02.tex" . 648)
+ ("/home/sayantan/Sync/Rust/Code/aoc23/"
+  (dired-filename . "/home/sayantan/Sync/Rust/Code/aoc23/benches"))
+ ("/home/sayantan/home-manager-nix/pkgs/emacs.nix" . 579)
+ ("/home/sayantan/Sync/websites/sayantankhan.io/Makefile" . 394)
+ ("/home/sayantan/Sync/websites/sayantankhan.io/content/pages/"
+  (dired-filename . "/home/sayantan/Sync/websites/sayantankhan.io/content/pages/Cycling.md"))
+ ("/home/sayantan/Sync/websites/sayantankhan.io/content/pages/Cycling.md" . 1741)
+ ("/home/sayantan/.emacs.d/"
+  (dired-filename . "/home/sayantan/.emacs.d/init.el"))
+ ("/home/sayantan/.emacs.d/init.el" . 5441)
+ ("/home/sayantan/home-manager-nix/pkgs/default.nix" . 282)
+ ("/home/sayantan/.emacs.d/elisp/"
+  (dired-filename . "/home/sayantan/.emacs.d/elisp/haskell-mode-conf.el"))
+ ("/home/sayantan/.emacs.d/elisp/ibuffer-conf.el" . 1023)
+ ("/home/sayantan/.emacs.d/elisp/magit-conf.el" . 34)
+ ("/home/sayantan/.emacs.d/elisp/emacs-general.el" . 2698)
+ ("/home/sayantan/.emacs.d/elisp/haskell-mode-conf.el" . 134)
+ ("/home/sayantan/.emacs.d/elisp/markdown-mode-conf.el" . 47)
+ ("/home/sayantan/.emacs.d/elisp/org-mode-conf.el" . 48)
+ ("/home/sayantan/.emacs.d/elisp/helm-conf.el" . 229)
+ ("/home/sayantan/.emacs.d/elisp/evil-mode-conf.el" . 260)
+ ("/home/sayantan/.emacs.d/elisp/yasnippet-conf.el" . 47)
+ ("/home/sayantan/.emacs.d/elisp/dashboard-conf.el" . 51)
+ ("/home/sayantan/.emacs.d/elisp/smartparens-conf.el" . 66)
+ ("/home/sayantan/.emacs.d/elisp/misc.el" . 142)
+ ("/"
+  (dired-filename . "/afs"))
+ ("/home/sayantan/temp/"
+  (dired-filename . "/home/sayantan/temp/area"))
+ ("/home/sayantan/home-manager-nix/files/zprezto/runcoms/zshrc" . 624)
+ ("/home/sayantan/Sync/Haskell/hasklox/"
+  (dired-filename . "/home/sayantan/Sync/Haskell/hasklox/app"))
+ ("/home/sayantan/Sync/configs/emacs-config/straight-init.el" . 195)
+ ("/home/sayantan/Sync/configs/emacs-config/bookmarks" . 251)
+ ("/home/sayantan/Sync/OrgMode/bikes.org" . 95)
+ ("/home/sayantan/OrgMode/us-immigration/opt-2023.org" . 200)
+ ("/home/sayantan/Sync/configs/macos-setup-guide.org" . 4488)
+ ("/home/sayantan/Sync/configs/fedora-setup-guide.org" . 5006)
+ ("/home/sayantan/Sync/Haskell/org-to-things/src/OrgToThings/Definitions.hs" . 2118)
+ ("/home/sayantan/Sync/Haskell/org-to-things/test/OrgToThings/ParserSpec.hs" . 18510)
+ ("/home/sayantan/Sync/Haskell/org-to-things/src/OrgToThings/Parser.hs" . 18513)
+ ("/home/sayantan/Sync/configs/emacs-config/early-init.el" . 36)
+ ("/home/sayantan/Sync/configs/emacs-config/Cask" . 54)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/dashboard-conf.el" . 28)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/yasnippet-conf.el" . 59)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/neotree-conf.el" . 53)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/helm-conf.el" . 41)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/org-mode-conf.el" . 24)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/markdown-mode-conf.el" . 59)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/magit-conf.el" . 46)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/haskell-mode-conf.el" . 318)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/smartparens-conf.el" . 349)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/evil-mode-conf.el" . 648)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/emacs-general.el" . 2403)
+ ("/home/sayantan/Sync/configs/emacs-config/elisp/auctex-conf.el" . 18)
+ ("/home/sayantan/Sync/configs/xps13-workstation/scripts/update-script.sh" . 593)
+ ("/home/sayantan/.emacs.d/recentf" . 1438)
+ ("/home/sayantan/Sync/Haskell/org-to-things/src/OrgToThings.hs" . 548)
+ ("/home/sayantan/Sync/Haskell/org-to-things/src/"
+  (dired-filename . "/home/sayantan/Sync/Haskell/org-to-things/src/OrgToThings"))
+ ("/home/sayantan/Sync/Haskell/org-to-things/src/OrgToThings/"
+  (dired-filename . "/home/sayantan/Sync/Haskell/org-to-things/src/OrgToThings/ParserMonad.hs"))
+ ("/home/sayantan/Sync/Haskell/org-to-things/test/"
+  (dired-filename . "/home/sayantan/Sync/Haskell/org-to-things/test/data"))
+ ("/home/sayantan/Sync/Haskell/org-to-things/package.yaml" . 1138)
+ ("/home/sayantan/Sync/Haskell/org-to-things/app/"
+  (dired-filename . "/home/sayantan/Sync/Haskell/org-to-things/app/Main.hs"))
+ ("/home/sayantan/Sync/Haskell/org-to-things/app/Main.hs" . 83)
+ ("/home/sayantan/Sync/Haskell/org-to-things/LICENSE" . 280)
+ ("/home/sayantan/Sync/Haskell/org-to-things/README.md" . 119)
+ ("/home/sayantan/Sync/Haskell/org-to-things/test/Spec.hs" . 64)
+ ("/home/sayantan/Sync/Haskell/org-to-things/stack.yaml" . 1122)
+ ("/home/sayantan/Sync/Haskell/org-to-things/org-to-things.cabal" . 115)
+ ("/home/sayantan/OrgMode/links.org_archive" . 416)
+ ("/home/sayantan/.emacs.d/elisp/python-mode-conf.el" . 729))

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Trip packing list
+# key: packing-list
+# --
+Packing list
+SCHEDULED: <`(format-time-string "%Y-%m-%d %a")`>
+- [ ] Passport
+- [ ] Phone charger
+- [ ] ${1:Other?}

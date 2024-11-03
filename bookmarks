@@ -1,0 +1,63 @@
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("Research"
+ (filename . "~/graduate-work/research-related/")
+ (front-context-string . "Patterson-Sulliv")
+ (rear-context-string . "96 Aug 10 11:12 ")
+ (position . 646))
+("Graduate work"
+ (filename . "~/graduate-work/current_semester/")
+ (front-context-string . "  drwxr-xr-x 7 s")
+ (rear-context-string . " Sep  6 11:03 .\n")
+ (position . 149))
+("Teaching"
+ (filename . "~/teaching/current_semester/")
+ (front-context-string)
+ (rear-context-string . "96 Sep  4 19:07 ")
+ (position . 248))
+("org-capture-last-stored-marker"
+ (filename . "~/OrgMode/links.org")
+ (front-context-string . "** Heather P Ult")
+ (rear-context-string . "5:13>\n* Cycling\n")
+ (position . 15214)
+ (last-modified 26363 20219 710339 0))
+("org-refile-last-stored"
+ (filename . "~/OrgMode/links.org")
+ (front-context-string . "** Heather P Ult")
+ (rear-context-string . "5:13>\n* Cycling\n")
+ (position . 15214)
+ (last-modified 26363 20219 706581 0))
+("org-capture-last-stored"
+ (filename . "~/OrgMode/links.org")
+ (front-context-string . "** Heather P Ult")
+ (rear-context-string . "tegorized links\n")
+ (position . 17247)
+ (last-modified 26363 20217 438304 0))
+("bikes.org"
+ (filename . "~/OrgMode/bikes.org")
+ (front-context-string . "e related stuff\n")
+ (rear-context-string . " Org file on bik")
+ (position . 78))
+("links.org"
+ (filename . "~/OrgMode/links.org")
+ (front-context-string . "w\n#+TITLE: Colle")
+ (rear-context-string . "STARTUP: overvie")
+ (position . 37))
+("notes.org"
+ (filename . "~/OrgMode/notes.org")
+ (front-context-string)
+ (rear-context-string . "ection of notes\n")
+ (position . 68))
+("recipes.org"
+ (filename . "~/OrgMode/recipes.org")
+ (front-context-string . "#+STARTUP: inden")
+ (rear-context-string)
+ (position . 1))
+("emacs.d"
+ (filename . "~/.emacs.d/")
+ (front-context-string . "auto-save-list\n ")
+ (rear-context-string . "96 May 30 11:26 ")
+ (position . 241))
+)

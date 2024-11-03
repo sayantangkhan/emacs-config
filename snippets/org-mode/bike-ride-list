@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: Bike ride packing list
+# key: bike-ride-list
+# --
+Packing list
+- [ ] Charged bike lights
+- [ ] Saddle bag
+- [ ] Mini pump
+- [ ] Bike computer (charged)
+- [ ] Water bottle(s)
+- [ ] Electrolytes
+- [ ] Food
+- [ ] Keys
+- [ ] Phone
+- [ ] Wallet
+- [ ] Headphones?
+- [ ] Helmet
+- [ ] Gloves
+- [ ] ${1:Other?}
+Pre-ride checklist
+- [ ] Thru-axle tightened
+- [ ] Chain lubricated
+- [ ] Tire pressure
+- [ ] Download route to Garmin
+- [ ] ${2:Other?}
