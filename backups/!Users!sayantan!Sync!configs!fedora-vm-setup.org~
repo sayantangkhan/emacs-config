@@ -1,0 +1,276 @@
+#+STARTUP: indent
+#+STARTUP: overview
+#+TITLE: Guide to setting up Fedora workstation on GNOME
+
+* Installing Fedora
+** Setting up hostname
+By default, the hostname of a new install is `localhost`. To change it, run the following command.
+#+BEGIN_SRC sh
+hostnamectl set-hostname {NameHere}
+#+END_SRC
+** Install updates
+OS and firmware updates
+#+BEGIN_SRC sh
+sudo dnf update
+sudo fwupdmgr update
+#+END_SRC
+** Installing other command line utilities
+#+BEGIN_SRC sh
+sudo dnf install zsh vim htop tmux wget unzip
+#+END_SRC
+* Post install tweaks
+** Removing PackageKit and Gnome software
+Remove PackageKit and Gnome software
+#+BEGIN_SRC sh
+sudo dnf remove PackageKit gnome-software
+#+END_SRC
+** BTRFS related
+*** Mount options
+The following mount options are recommended.
+#+BEGIN_SRC sh
+compress-force=zstd,noatime,discard=async
+#+END_SRC
+*** Displaying information
+The following commands are btrfs aware variants of standard Unix utilities.
+#+BEGIN_SRC sh
+sudo btrfs fi show <subvolume-name>
+sudo btrfs fi du -s <subvolume-name>
+sudo btrfs fi df <subvolume-name>
+sudo compsize -x <subvolume-name>
+#+END_SRC
+*** General maintainence
+**** Scrubbing
+Checks for corruptions and tries to fix them.
+#+BEGIN_SRC sh
+btrfs scrub start <subvolume-name>
+#+END_SRC
+To check the status of running scrub, run the following.
+#+BEGIN_SRC sh
+btrfs scrub status <subvolume-name>
+#+END_SRC
+**** Balance
+On a single disk system, this is needed if the metadata fills up the disk.
+#+BEGIN_SRC sh
+btrfs balance start <subvolume-name>
+#+END_SRC
+To check the status of a running balance, run the following.
+#+BEGIN_SRC sh
+btrfs balance status <subvolume-name>
+#+END_SRC
+
+*** BTRFS backup setup
+Install the ~btrbk~ tool, and use the config from the ~Sync~ directory.
+** Gnome tweaks
+Install gnome-tweak-tool.
+#+BEGIN_SRC sh
+sudo dnf install gnome-tweak-tool
+#+END_SRC
+Once that's installed, switch to the dark theme, remap CapsLock to Esc, and make other cosmetic changes.
+** Firefox
+Get rid of the front page clutter and compactify the layout. Then
+install the following extensions.
+- Firefox Multi-account containers
+- uBlock Origin
+- Zotero connector
+- PassFF
+- Reddit Enhancement Suite
+
+Create 2 containers, Personal and Banking.
+** Chrome
+Install chrome from the website, and log into the `umich.edu` account.
+** Wireguard
+Install wireguard-tools.
+#+BEGIN_SRC sh
+sudo dnf install wireguard-tools
+#+END_SRC
+After this, place the appropriate config in `/etc/wireguard`, and then the up_vpn and down_vpn aliases
+should just work.
+** SSH keys
+Generate a new SSH keypair, and update all online services with this key.
+- Gitlab
+- Github
+- Digital Ocean
+** Nix
+The first step is to install Nix (as regular user).
+#+BEGIN_SRC sh
+curl -L https://nixos.org/nix/install | sh
+#+END_SRC
+Then one install home-manager by following the instructions [[https://github.com/rycee/home-manager][here]].
+Once that's done, we symlink home.nix to the bundled file, and
+run `home-manager switch`. This will take a while. Some of the components
+will require additional configuration.
+** zsh
+Install zsh from system repositories (or Nix), and set it as default shell.
+Run ~compinit~ to make completion work.
+** Syncthing
+Go to localhost:8384, and configure it to sync to ubuntu-violet:8384.
+** Pass
+BUG: The git and ssh that comes as dependencies of the nixpkgs pass don't work on Fedora. Use the
+distribution's version of pass instead.
+
+Copy over the password store and import the gpg keys.
+#+BEGIN_SRC sh
+gpg --import private.key
+gpg --edit-key <key-id>
+#+END_SRC
+Also set up the firefox extension.
+
+If completion doesn't work, run ~compinit~.
+** Emacs
+Install Emacs from the main repository.
+#+BEGIN_SRC sh
+sudo dnf install emacs
+#+END_SRC
+Then, install Cask from the github repo.
+#+BEGIN_SRC sh
+curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+#+END_SRC
+Following the installation of Cask, symlink the contents of the `emacs-config` directory to `.emacs.d`.  Run
+~cask install~ in the directory and enable the emacs service.
+** Rust
+Install `rustup` from the website.
+#+BEGIN_SRC sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Stuff for the Rust language server. Unnecessary since rust-analyzer works.
+#rustup component add rls rust-analysis rust-src
+
+# Add zsh completions for rustup
+rustup completions zsh >> /home/sayantan/home-manager-nix/files/zfunc
+#+END_SRC
+Remember to run ~compinit~ to load the completions.
+** Visual Studio Code (for Rust and Haskell)
+Install Visual Studio Code from AUR
+#+BEGIN_SRC sh
+# Import VSCode repo keys and repo
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+
+# Update and install
+sudo dnf check-updates
+sudo dnf install code
+#+END_SRC
+Install the following addons
+#+BEGIN_SRC sh
+code --install-extension bungcip.better-toml
+code --install-extension matklad.rust-analyzer
+code --install-extension vscodevim.vim
+code --install-extension haskell.haskell
+code --install-extension hoovercj.haskell-linter
+#+END_SRC
+** Haskell
+Install GHCup and the following packages
+#+BEGIN_SRC sh
+sudo dnf install ncurses-devel gmp-devel gmp ncurses ncurses-compat-libs
+#+END_SRC
+
+** Flatpak
+Flatpak comes pre-installed on Fedora, so all we need to do is add the flathub repo.
+#+BEGIN_SRC sh
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+#+END_SRC
+*** Spotify
+Install Spotify from the Flathub repository.
+#+BEGIN_SRC sh
+flatpak install flathub com.spotify.Client
+#+END_SRC
+** Zotero
+Install Zotero from Flathub. Then set up syncing from the GUI.
+#+BEGIN_SRC sh
+flatpak install flathub org.zotero.Zotero
+#+END_SRC
+** LaTeX and helpers
+Install LaTeX, aspell, and zathura
+#+BEGIN_SRC sh
+sudo dnf texlive-scheme-full aspell aspell-en zathura zathura-pdf-mupdf
+#+END_SRC
+To set up personal dictionary syncing, symlink the .aspell-dict.pws file.
+#+BEGIN_SRC sh
+ln -sv ~/Sync/Misc/aspell-dict.pws .aspell.en.pws
+#+END_SRC
+
+To use inkscape to generate illustrations, install inkscape from the Arch repos, since
+the nixpkgs version seems to not quite work.
+#+BEGIN_SRC sh
+sudo dnf install inkscape
+#+END_SRC
+** Wacom tablet setup
+The kernel already contains the drivers for Wacom tablets. To make the tablet usable
+in Xorg, and configure it via KDE, install the following packages.
+#+BEGIN_SRC sh
+sudo pacman -S xf86-input-wacom kcm-wacomtablet
+#+END_SRC
+It's also convenient to install Openboard. We use the Flatpak version.
+#+BEGIN_SRC sh
+flatpak install flathub ch.openboard.OpenBoard
+#+END_SRC
+** profile-sync-daemon
+Install ~profile-sync-daemon~ from the repositories.
+#+BEGIN_SRC sh
+sudo dnf install profile-sync-daemon
+#+END_SRC
+Run ~psd p~ and follow the instructions to add the appropriate overlay fs command to sudoers file.
+** Update symlinks
+- graduate_work
+- OrgMode
+- teaching
+- Zotero
+#+BEGIN_SRC sh
+ln -sv Sync/graduate-work ~/
+ln -sv Sync/OrgMode ~/
+ln -sv Sync/teaching ~/
+ln -sv Sync/Zotero ~/
+#+END_SRC
+* Removing defaults
+** Firewall
+I can't quite figure out how to make the firewall to work with wireguard, so as
+a workaround, one can disable it.
+#+BEGIN_SRC sh
+sudo systemctl disable firewalld
+#+END_SRC
+* Common tasks
+** Update
+#+INCLUDE: "~/Sync/xps13-workstation/scripts/update-script.sh" src sh
+** Cleanup
+#+INCLUDE: "~/Sync/xps13-workstation/scripts/cleanup.sh" src sh
+* Device specific
+** XPS 13
+*** Setup charge thresholds in BIOS
+A reasonable range is 60-80.
+*** Partitioning layout
+Go through the standard installation, but choose custom partitioning. Leave the EFI partition
+untouched, have a 1 GB boot partition, and assign the rest to an encrypted root partition.
+*** Setting up a swap file
+Create a swapfile.
+#+BEGIN_SRC sh
+dd if=/dev/zero of=/swapfile bs=1M count=512 status=progress
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+#+END_SRC
+The edit /etc/fstab to mount this at boot.
+#+BEGIN_SRC sh
+/swapfile none swap defaults 0 0
+#+END_SRC
+** T420s
+** Yoga
+*** Create subvolumes for Rust builds
+**** Subvolume for Rust build
+Create a subvolume in the home directory
+#+BEGIN_SRC sh
+sudo btrfs subvolume create .rust-builds
+sudo chown -R sayantan:sayantan .rust-builds
+#+END_SRC
+Modify the ~.cargo/config~ file to redirect builds to the subvolume.
+#+BEGIN_SRC
+[build]
+target-dir = ".rust-builds/build"
+#+END_SRC
+*** Setting up Steam
+Install ~steam~ using ~dnf~ from the RPMFusion repo.
+Then create a subvolume to store the games in.
+#+BEGIN_SRC sh
+sudo btrfs subvolume create SteamGames
+sudo chown -R sayantan:sayantan SteamGames
+#+END_SRC
+Start Steam, change the default library to SteamGames, and enable Proton.

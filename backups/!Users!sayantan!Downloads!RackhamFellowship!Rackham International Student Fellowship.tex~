@@ -1,0 +1,313 @@
+\documentclass[11 pt]{amsart}
+\usepackage{amssymb, amsmath, amsfonts, amsthm, graphics}
+\usepackage[hmargin=1 in, vmargin = 1 in]{geometry}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\usepackage[all]{xy}
+\usepackage{enumitem}
+\usepackage{youngtab} % This is the package I use to draw Young Tableaux. Check out http://www.ctex.org/documents/packages/math/youngtab.pdf for documentation.
+\usepackage{mathtools}
+\usepackage{gentium}
+
+% When you first define a new word, use this macro to make it stand out
+% EG We say that an abelian group $I$ is \newword{injective} if, for any
+% injection $G \to H$, and any map $G \to I$, there is a map $H \to I$ making the
+% obvious diagram commute.
+\newcommand{\newword}[1]{\textbf{\emph{#1}}}
+
+%Arrows
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\from}{\leftarrow}
+
+%Makes small matrices, suitable for using in running text. Usually not a good idea to use in matrices with more than three rows.
+\newenvironment{sbm}
+    {\left[ \begin{smallmatrix}
+    }
+    { 
+     \end{smallmatrix} \right]
+    }
+
+% This makes quotients G\X typeset with spacing similar to X/G, which neither \backslash nor \setminus will do. Thanks to Philippe Goulet at https://tex.stackexchange.com/a/7110/5034 for this solution.
+\def\leftquot{\delimiter"526E30F\mathopen{}} 
+
+
+\newcommand{\inner}[2]{\left\langle #1, #2\right\rangle}
+
+\newcommand{\Span}{\text{Span}}
+
+\newcommand{\isom}{\cong} %The isomorphism symbol. Somehow, I can never remember the LaTeX name for this.
+
+%Theorem enviroments. Feel free to add more.
+\theoremstyle{definition}
+\newtheorem{Theorem}{Theorem}
+\newtheorem{thrm}{Theorem}
+\newtheorem{Lemma}{Lemma}
+\newtheorem{lem}{Lemma}
+\newtheorem{Corollary}{Corollary}
+\newtheorem{cor}{Corollary}
+\newtheorem{Remark}{Remark}
+\newtheorem{remark}{Remark}
+\newtheorem{rem}{Remark}
+\newtheorem{Definition}{Definition}
+\newtheorem{defn}{Definition}
+\newtheorem{Proposition}{Proposition}
+\newtheorem{prop}{Proposition}
+\newtheorem{Conclusion}{Conclusion}
+\newtheorem{eg}{Example}
+\newtheorem{example}{Example}
+\newtheorem{Example}{Example}
+\newtheorem{ex}{Example}
+\newtheorem{Conjecture}{Conjecture}
+\newtheorem{Fact}{Fact}
+
+\newtheorem{Problem}{Problem}
+
+
+\newcommand{\GL}{\text{GL}}
+\newcommand{\SL}{\text{SL}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\End}{\text{End}}
+\newcommand{\PW}{\texttt{PW}}
+\newcommand{\Id}{\text{Id}}
+\newcommand{\Sym}{\text{Sym}}
+\newcommand{\Tr}{\text{Tr}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Image}{\text{Im}}
+\newcommand{\Mat}{\text{Mat}}
+\newcommand{\Sp}{\text{Sp}}
+
+%Blackboard bold letters.
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\CC}{\mathbb{C}} 
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\GG}{\mathbb{G}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\II}{\mathbb{I}}
+\newcommand{\JJ}{\mathbb{J}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\LL}{\mathbb{L}}
+\newcommand{\MM}{\mathbb{M}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\renewcommand{\SS}{\mathbb{S}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\UU}{\mathbb{U}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\WW}{\mathbb{W}}
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\YY}{\mathbb{Y}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\title{Personal Statement}
+\author{Urshita Pal}
+
+
+
+\begin{document}
+
+
+\maketitle
+
+	
+	I am pursuing a PhD in mathematics as I am seeking a career involving research and teaching in mathematics. I love the patience and problem-solving skills that math involves, and have greatly enjoyed pursuing mathematics since I started college.
+	 
+	My research involves the interplay of three branches of mathematics - combinatorics, topology, and algebra. Specifically, I use combinatorial and algebraic tools to study the (co)homology of arithmetic groups like the special linear groups $SL_n{\mathbb{Z}}$ and symplectic groups $Sp_{2n}{\mathbb{Z}}$. The (co)homology of these groups is of interest in several areas of math, including number theory, K-theory, and topology.
+	
+	%MENTION PRACTICAL APPLICATIONS, EVEN IF THEY'RE FOUR TIMES REMOVED
+	
+	\section{Background}
+	In this section we establish the mathematical context of my research project, focussing more on broad ideas rather than rigorous details.
+	\subsection*{(Co)homology Groups}
+	Topology involves the study of geometric spaces, upto performing continuous deformations such as stretching and bending, but without making tears, gluing, or adding or closing off holes in the space. For example, a 2-dimensional circular disk and a square are topologically equivalent, but a disk and an annulus are not, since an annulus has a hole (see Figure \ref{fig:disk_annulus}). 
+	
+	\begin{figure}[h]
+	  \centering
+	  \includegraphics[scale=0.2]{RackhamInternational_Disk&Annulus}
+	  \caption{A Disk and an Annulus}
+	  \label{fig:disk_annulus}
+	\end{figure}
+	
+	We can also distinguish between spaces by looking at the `dimension' of a hole.
+	For example, both a circle and a 2-dimensional sphere have one hole, but the hole in the annulus is 1-dimensional, and the one in the sphere is 2-dimensional (see Figure \ref{fig:circle_sphere}).
+	
+	\begin{figure}[h]
+	  \centering
+	  \includegraphics[scale=0.2]{RackhamInternational_Circle&Sphere}
+	  \caption{A Circle and Sphere have holes of differing dimensions}
+	  \label{fig:circle_sphere}
+	\end{figure}
+	
+	
+	Thus, one way to distinguish between topological spaces is to track the number and dimension of their holes.
+	To do this, we can make use of the algebraic notion of a \emph{group}. Roughly speaking, a group is a set with an operation, which gives us a way of `adding' or `composing' any two elements (for instance, the set of integers $\ZZ$ forms a group under addition). We can associate certain groups to a topological space that track the holes in that space. These are called \emph{homology groups}. The degree one homology group, denoted $H_1$, tracks the 1-dimensional holes; the degree two homology group, denoted $H_2$, tracks the 2-dimensional holes, and so on. The 0-degree group $H_0$ measures how many disjoint pieces the space is made up of. These give us a natural way to abstract properties of the space into a sequence of groups, which we can perform computations with.
+
+	There is a similarly defined notion of \emph{cohomology groups}, denoted $H^0, H^1, H^2, \dots$ etc. Depending on the situation, one of homology or cohomology might be easier to compute than the other.
+	
+	\subsection*{Chain Complexes}
+	(Co)homology groups are defined by first associating a \emph{(co)chain complex} to a topological space. A (co)chain complex comprises of a sequence of \emph{chain groups}, denoted $C_0, C_1, C_2, \dots$, and certain \emph{boundary maps}, denoted $\partial_k$, between them. The idea is that we can build up our space by starting with a 0-dimensional skeleton, which is a collection of vertices. Then we add a 1-dimensional skeleton, where we put edges between these vertices. Then we add a 2-dimensional skeleton, and so on. The chain groups $C_k$ encode the $k$-dimensional skeleton. The boundary maps encode how all these different dimensional pieces are glued together. A chain complex looks as follows:
+	\begin{equation*}
+		\dots \xrightarrow{\partial_{k+1}} C_k \xrightarrow{\partial_k} \dots \xrightarrow{\partial_3} C_2 \xrightarrow{\partial_2} C_1 \xrightarrow{\partial_1} C_0 \rightarrow 0
+	\end{equation*}	
+	
+	We use the boundary maps $\partial_{k+1} $ and $ \partial_k$ to compute the $k$-th (co)homology.
+	
+	\begin{Fact}
+		There can be multiple ways of getting a (co)chain complex for a space, but they all give the same (co)homology groups.
+	\end{Fact}
+	
+	\begin{Fact}	
+	If a space has a finite dimension $d$, then:
+	\begin{itemize}
+	 \item All its chain groups $C_k$ for $k > d$ are 0
+	 \item The (co)homology beyond degree $d$ is 0.
+	\end{itemize} 
+	 \end{Fact}
+	
+	
+	
+	\subsection*{(Co)homology with Coefficients} 
+	There is a closely related notion of \emph{(co)homology with coefficients}. One can make sense of the (co)homology of a space $X$ with coefficients in a group $G$, denoted as $H_k(X; G)$ and $H^k(X; G)$. By default, the (co)homology groups $H_k(X), H^k(X)$ mentioned above have coefficients in $\ZZ$, i.e. $H_k(X) = H_k(X; \ZZ)$ and $H^k(X) = H^k(X; \ZZ)$. Sometimes, (co)homology groups with a particular coefficient group can be more convenient to work with.
+	
+
+	
+
+	\subsection*{Group (Co)homology} 
+	Given a group $G$, we also have a way of constructing a (co)chain complex from $G$ itself, and we can then similarly compute (co)homology from this. Thus, we have a notion of the \emph{group (co)homology} of $G$. Just as an important step to understanding a topological space is to understand its (co)homology groups, the same holds for understanding a group. 
+	%There are many instances of groups that have significance in number theory, low-dimensional topology, etc, for which understanding their group (co)homology has become a goal in itself, \textbf{INSERT EXAMPLES}.
+	
+	
+   \section{Current Research Directions}
+
+
+	I am particularly interested in studying the cohomology of the special linear groups $SL_n{\mathbb{Z}}$ - these are matrices with integer entries and determinant 1 - and the symplectic groups $Sp_{2n}{\mathbb{Z}}$, which are an important subgroup of $SL_{2n}{\mathbb{Z}}$.
+	These groups are difficult to compute by hand, and relatively little is known. 
+	
+	It turns out that, much like a topological space of finite dimension $d$ can never have non-zero cohomology beyond degree $d$, these groups also have a top cohomological degree. In the case of $SL_n{\mathbb{Z}}$ it is $n \choose 2$, and for $Sp_{2n}(\ZZ)$ it is $n^2$. Moreover, these groups also satisfy a (co)homological duality with respect to this top degree:
+	
+	\begin{Theorem} \cite{Borel1973}
+	
+		\begin{equation*}
+			H^{{n \choose 2}-i}(SL_n{\mathbb{Z}}; \mathbb{Q}) \cong H_i(SL_n{\mathbb{Z}}; St_n)
+		\end{equation*}	
+		\begin{equation*}
+			H^{{n^2}-i}(Sp_{2n}{\mathbb{Z}}; \mathbb{Q}) \cong H_i(Sp_{2n}{\mathbb{Z}}; St^{\omega}_n)
+		\end{equation*}
+	\end{Theorem}
+	
+	Here, the coefficient groups of $St_n$ and $St^{\omega}_n$ are called the \emph{Steinberg module} and \emph{Symplectic Steinberg module}, respectively.
+	These duality statements are useful because we have more practical chain complexes for computing $H_*(SL_n{\ZZ}; St_n)$ and $H_*(Sp_{2n}{\ZZ}; St^{\omega}_n)$. Additionally, the above theorem transfers the problem of computing cohomology groups in high degree to computing homology groups in low degrees, which is relatively easier. 
+	
+	The (symplectic) Steinberg module is defined in terms of a certain simplicial complex called the \emph{(symplectic) Tits building}, named after Jacques Tits.
+	
+	
+		
+		 A simplex is a generalisation of triangles and tetrahedra to arbitrary dimensions, and is the simplest polytope in any given dimension (See Figure \ref{fig:simplices}). 
+		  A simplicial complex is a space built by gluing simplices together (See Figure \ref{fig:simpcomplex}). 
+		  
+		\begin{figure}[h]
+		  \centering
+		  \includegraphics[scale=0.2]{RackhamInternational_Simplices}
+		  \caption{From left to right: Simplices in dimensions 0, 1, 2 and 3}
+		  \label{fig:simplices}
+		\end{figure}
+		
+		 
+	 	\begin{figure}[h]
+	 	  \centering
+	 	  \includegraphics[scale=0.2]{RackhamInternational_SimplicialComplex}
+	 	  \caption{A Simplicial Complex}
+	 	  \label{fig:simpcomplex}
+	 	\end{figure}
+		 
+	 
+		 
+		  In the case of the (symplectic) Tits buildings, these simplices correspond to chains of subspaces of the vector space $\QQ^n$.
+	      We can study the groups $H_*(SL_n\ZZ; St_n)$ and $H_*(Sp_{2n}\ZZ; St^{\omega}_n)$ by studying combinatorial properties of the Tits building.
+		  
+		  Various authors have proved some of these groups are 0, \textbf{CITE}. They use combinatorial techniques to prove high connectivity of certain simplicial complexes similar to the Tits buildings. (One can think of high connectivity as: the $\leq n$-dimensional skeleton of the complex can be deformed to a point, for a large $n$). These findings are all consistent with the following conjecture:
+		  
+		  \begin{Conjecture} \textbf{CITE}
+			  
+			  $H^{{n \choose 2}-i}(SL_n\ZZ; \QQ) \cong 0$ for $n \geq i+2$ 
+
+			\end{Conjecture}  
+		  
+		  Recently, there has been more progress in establishing which of these cohomology groups are non-zero, which is also consistent with this Conjecture.
+	
+	Lee-Sczcarba \textbf{CITE} constructed a sequence of groups, denoted $C_0(\QQ^n), C_1(\QQ^n), \dots$, and showed that they form a chain complex that computes $H_*(SL_n\ZZ; St_n)$.
+	
+	\begin{Theorem} \textbf{CITE}
+		%Thm 3.1 in `homology of congruence subgroups'
+		
+		The groups $C_k(\QQ^n)$ form a chain complex that can be used to compute the homology groups $H_*(SL_n\ZZ; St_n)$.
+		
+		\begin{equation*}
+			\dots \xrightarrow{\partial_3} C_2(\QQ^n) \xrightarrow{\partial_2} C_1(\QQ^n) \xrightarrow{\partial_1} C_0(\QQ^n) \rightarrow 0
+		\end{equation*}	
+		
+	\end{Theorem}	
+	
+	This chain complex is called the \emph{Sharbly resolution}. However, the groups involved are so large that it is not practical for making explicit computations.
+	
+	But in work published earlier this year, Ash-Miller-Patzt \textbf{CITE} used the Sharbly resolution to show that if we collect \emph{all} the groups $H_k(SL_n\ZZ; St_n)$, for all values of $k$ and $n$, into a group called the \emph{direct sum}, denoted $\bigoplus_{k,n \geq 0} H_k(SL_n\ZZ; St_n)$, then this direct sum has a rich algebraic structure: 
+	
+	\begin{Theorem} \textbf{CITE}
+		$\bigoplus_{k,n \geq 0} H_k(SL_n\ZZ; St_n)$ is a connected graded commutative Hopf algebra.
+	\end{Theorem}	
+	
+	This places very strong restrictions on the structure of the group, as shown in \textbf{CITE}
+	
+	\begin{Theorem} \textbf{CITE}
+		A connected graded Hopf algebra is isomorphic to the free graded commutative algebra generated by its indecomposables.
+	\end{Theorem}	
+	
+	 This in particular, allowed Ash-Miller-Patzt to establish infinite families of non-zero homology classes.
+	
+	
+	
+
+	In my current project, I am trying to establish similar patterns in the case of $Sp_{2n}\ZZ$. So far, it seems that $\bigoplus_{k,n \geq 0} H_k(Sp_{2n}\ZZ; St^{\omega}_n)$ may have the structure of a \emph{Hopf module}:
+	
+	\begin{Conjecture}
+		$\bigoplus_{k,n \geq 0} H_k(Sp_{2n}\ZZ; St^{\omega}_n)$ is a Hopf module over the Hopf algebra $\bigoplus_{k,n \geq 0} H_k(SL_n\ZZ; St_n)$.
+	\end{Conjecture}
+	
+	
+	Similar to the Hopf algebra case, a Hopf module imposes strong restrictions on its structure.
+	
+	\begin{Theorem}
+		%See nlab page for citation
+		If $M$ is a Hopf module over a Hopf algebra $H$, then
+		\begin{equation*}
+			M \cong H \otimes M^{coH}
+		\end{equation*}	
+		where $M^{coH}$ are the coinvariants of $M$ under the coaction of $H$.
+	\end{Theorem}	
+	
+	
+	In our case, where $H = \bigoplus_{k,n \geq 0} H_k(SL_n\ZZ; St_n)$ and $M = \bigoplus_{k,n \geq 0} H_k(Sp_{2n}\ZZ; St^{\omega}_n)$, this would allow us to establish an infinite family of non-zero homology elements in the symplectic case.
+	
+	One added difficulty in working with the symplectic group is that there is no good analogue of the Sharbly resolution. There is however, a general construction, called the \emph{bar construction}, that I am working with, but that is even more computationally complex than the Sharbly resolution.
+	%Maybe a bit more about methodology - can say constructing maps, checking conditions etc
+	
+	Revieving the fellowship would allow me to spend more time on this project and potential consequences, if the Conjecture is true.
+	
+\section{Outreach}
+
+	I love the process of explaining and discussing mathematics with others, and find that it is not only a very creative outlet, but also helps me think in a more organised way than when working alone. To that end, I love writing talks for student seminars, where graduate students practice giving talks and share what they have learned in their studies. I mentored an undergraduate student through the Directed Reading Program. I've run a Math Circle - which is a program designed to get middle- and high-schoolers engaged and excited about math, and given a talk at the Math Club, which aims to popularise math amongst a general undergraduate audience. In May and June of 2024, I was a Research Assistant for an REU (Research Experience for Undergraduates) run by my advisor. My work involved helping the students get up to speed on the math background needed for their research project - which involved having discussions with and designing talks for the students, and thinking about the research problem myself and giving suggestions on ideas to try in solving it.
+
+	I organised the Student Dynamics/Geometry/Topology seminar at Michigan for two years. I served on the admissions committee for the Lab of Geometry program at Michigan for two semesters, where undergraduates are mentored by faculty in computer-assisted mathematics. The issue of gender equity has been very close to my heart ever since I started college and started witnessing skewed gender ratios in math spaces. Michigan runs a chapter of the Association for Women in Math, and I have participated in some of their mentoring programs in past semesters.
+	
+	I find these opportunities very rewarding, and the break from teaching afforded by the fellowship would allow me to invest more time in them.
+	
+\bibliography{References.bib}{}
+\bibliographystyle{plain}	
+	
+\end{document}	

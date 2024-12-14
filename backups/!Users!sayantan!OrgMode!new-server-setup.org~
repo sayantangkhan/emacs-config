@@ -1,0 +1,82 @@
+#+STARTUP: indent
+#+STARTUP: overview
+#+OPTIONS: p:t
+#+TITLE: New server setup
+
+* Outline of architecture
+We will have two servers: a cheap VPS running on DigitalOcean that's always on, and a server at home that's also always running.
+The VPS will be used minimally, only for hosting stuff that always needs to be online, like the website, Syncthing, etc.
+The home server will be used for most of the services, including the CPU heavy or space heavy services.
+The configuration on both the servers needs to be as declarative as possible, so that everything that's running is documented, in case of server failures of any kind.
+
+* VPS
+** Hardware
+DigitalOcean 5 USD VPS, or something even cheaper. No longer using Linode because the login experience is so messed up.
+** Operating system
+Use an OS with long update cycle, like Centos, RHEL, or Debian. No Ubuntu. But manage most services with Nix.
+** Services
+- [ ] Tailscale, with exit node (see if it can be managed via Nix)
+- [ ] Syncthing (for the always on feature)
+- [ ] Nginx for website (the main website: the various subdomains will be on home server) (Nixify this as well)
+- [ ] Service to regenerate the website based on source updates (figure out how to do this)
+- [ ] Auto-update service?
+- [ ] ssh
+
+* Home server
+** Hardware
+Will use Thinkpad T420s for now: possibly get a larger internal hard drive for later, or upgrade to a more beefy server computer.
+** Operating system
+Might use Debian, since that supports btrfs best amongst the three candidates.
+** Services
+- [ ] Dashboard
+- [ ] Jellyfin (to do youtube and other videos)
+- [ ] jupyter.sayantankhan.io
+- [ ] orgmode.sayantankhan.io (with a secondary service to turn Org-to-Things, with good error logging)
+- [ ] Auto-update service?
+- [X] Btrfs backup service (check if this triggers)
+- [X] Service to rebalance btrfs every so often (check if this triggers)
+- [X] Podgrab (in a docker container, that I should Ansiblize)
+- [X] Tailscale
+- [X] ssh
+- [X] Syncthing
+- [ ] Build farm?
+- [ ] Nix cache?
+
+* Data hoarding
+** Podcasts
+- [X] Kill James Bond
+- [X] Bikes or Death
+- [ ] 10k posts
+- [X] War on Cars
+- [X] Escape Collective
+- [ ] The true crime ones
+- [X] The Magnus Archives
+- [X] Radiolab
+** TV shows
+- [ ] Derry Girls
+- [ ] The Good Place
+- [ ] Limmy's show
+- [ ] Peep Show
+- [ ] Mitchell and Webb
+- [ ] Watchmen
+- [ ] Trailer Park Boys
+** Movies
+- [ ] Bicycle Thieves
+
+* Home server specifics
+** Initial setup
+- Set up ~sudo~.
+- Install ~nix~.
+- Install ~home-manager~.
+- Symlink ~home.nix~ to the actual file.
+- Set up ~/home/sayantan/Sync~ to be a btrfs subvolume.
+- Set up Syncthing to sync with remote server.
+- Symlink ~home-manager-nix~ folder.
+- Install ~podman~.
+- Set up the podman service directory: ~mkdir -p /home/sayantan/.config/containers/systemd/~.
+- Detect service files: ~systemctl --user daemon-reload~.
+** Podgrab
+- Run podgrab without mounting any volumes, using ~docker run -d -p 8080:8080 --name=podgrab akhilrex/podgrab~.
+- Copy the ~podgrab.db~ file from within the container to ~/home/sayantan/configs/podgrab/~.
+- Start and install the service: ~systemctl --user start podgrab.service~.
+** Other services

@@ -1,0 +1,152 @@
+#+STARTUP: indent
+#+STARTUP: overview
+#+TITLE: Guide to setting up a MacOS workstation
+
+* Installing toolchains
+** DONE Homebrew
+*** Installation
+Run the following command.
+#+BEGIN_SRC sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#+END_SRC
+*** Brew commands
+- Updating homebrew and the installed packages definitions (formulae)
+  #+BEGIN_SRC sh
+  brew update
+  #+END_SRC
+- Listing outdated packages
+  #+BEGIN_SRC sh
+  brew outdated
+  #+END_SRC
+- Upgrading packages
+  #+BEGIN_SRC sh
+  brew upgrade
+  #+END_SRC
+** DONE Rust
+** CANCELLED Haskell
+** DONE LaTeX
+Install MacTeX.
+** CANCELLED Nix
+*** Reason for cancellation
+Nix on MacOS is more complicated, and involves setting up a daemon.
+*** Installation
+Run the following command.
+#+BEGIN_SRC sh
+sh <(curl -L https://nixos.org/nix/install)
+#+END_SRC
+To verify success of the installation, check the version.
+#+BEGIN_SRC sh
+nix-env --version
+#+END_SRC
+* Installing GUI applications
+** DONE iTerm2
+*** Install and setup tmux integration
+*** Keyboard shortcut
+** DONE Firefox
+Get rid of the front page clutter and compactify the layout. Then
+install the following extensions.
+- Firefox Multi-account containers
+- uBlock Origin
+- Zotero connector
+- PassFF
+- Reddit Enhancement Suite
+
+Create 2 containers, Personal and Banking.
+
+Also, make firefox the default browser.
+** DONE Chrome
+Install chrome from the website, and log into the `umich.edu` account.
+** DONE Zotero
+Install Zotero from the website (might have to install Rosetta), and set up syncing from the GUI.
+** WAITING Emacs
+Install emacs from homebrew.
+#+BEGIN_SRC sh
+brew install --cask emacs
+#+END_SRC
+
+Then, install Cask from the github repo.
+#+BEGIN_SRC sh
+curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+#+END_SRC
+Following the installation of Cask, symlink the contents of the `emacs-config` directory to `.emacs.d`.  Run
+~cask install~ in the directory and enable the emacs service.
+
+To set up the emacs daemon, see this [[https://briansunter.com/blog/emacs-daemon-macos][link]]. To create a separate app icon for ~emacsclient~, see this [[https://blog.lambda.cx/posts/using-emacsclient-on-macos/][link]].
+
+Also, figure out how to associate emacsclient with various filetypes.
+** VSCode
+Install VSCode from the App store. Then install the following addons
+#+BEGIN_SRC sh
+code --install-extension bungcip.better-toml
+code --install-extension matklad.rust-analyzer
+code --install-extension vscodevim.vim
+code --install-extension haskell.haskell
+code --install-extension hoovercj.haskell-linter
+#+END_SRC
+** Zoom
+* Services
+** DONE Tailscale
+Follow the instructions on [[https://tailscale.com/download/mac][this website]].
+** CANCELLED Home manager
+First, copy the ~Sync~ directory from one of my other computers, and create  a ~home-manager-nix~ directory in the home folder that points to ~Sync/configs/mac-mini/~.
+
+Then install home-manager by following the instructions [[https://github.com/rycee/home-manager][here]].
+Once that's done, we symlink home.nix to the bundled file, and
+run `home-manager switch`. This will take a while. Some of the components
+will require additional configuration.
+** DONE Syncthing
+Go to localhost:8384, and configure it to sync to centos-crimson:8384.
+** DONE Pass
+Use the ~nixpkgs~ version of ~pass~. Copy over the password store and import the gpg keys.
+Make sure copying works correctly, and the firefox plugin does too.
+* Other
+** DONE SSH keys
+Generate a new SSH keypair, and update all online services with this key.
+- Gitlab
+- Github
+- Digital Ocean
+** DONE Update symlinks
+- graduate_work
+- OrgMode
+- teaching
+- Zotero
+#+BEGIN_SRC sh
+ln -sv Sync/graduate-work ~/
+ln -sv Sync/OrgMode ~/
+ln -sv Sync/teaching ~/
+ln -sv Sync/Zotero ~/
+#+END_SRC
+* Removing extraneous applications
+* MacOS specific tweaks
+** DONE Font smoothing
+Disable font smoothing.
+#+BEGIN_SRC sh
+defaults -currentHost write -g AppleFontSmooting -int 0
+#+END_SRC
+** Rectangle
+For better window snapping
+** DONE Remove preinstalled applications
+Open launcher and press `option`.
+* Nix workaround
+** DONE Syncthing
+Install official Mac image from website.
+** DONE Gnupg
+Install gnupg from homebrew.
+#+BEGIN_SRC sh
+  brew install gnupg
+  brew install pinentry-mac
+  # Import and trust key
+  gpg --import <key-location>'
+  gpg --edit-key <key-id>
+#+END_SRC
+
+** DONE Pass
+Install from homebrew.
+#+BEGIN_SRC sh
+  brew install pass
+#+END_SRC
+
+** DONE CLI tools
+#+BEGIN_SRC sh
+  brew install fzf zoxide ripgrep aspell
+#+END_SRC
